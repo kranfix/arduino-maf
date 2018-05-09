@@ -2,9 +2,9 @@
  * Created by Kranfix on 08/05/2018
  */
 
-//#define T int
+#define T int
 #define N 50
-template<typename T>
+//template<typename T>
 class CircularBuffer {
   T _buf[N];
   
