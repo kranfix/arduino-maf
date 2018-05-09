@@ -4,7 +4,7 @@
 #define bufferLength 50
 
 //CircularBuffer<int,bufferLength> cb();
-CircularBuffer cb();
+CircularBuffer cb;
 
 void setup(){
   Serial.begin(9600);
