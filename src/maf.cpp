@@ -1,14 +1,17 @@
 #include "maf.hpp"
 
-//template<typename T, int N>
-//template<typename T>
-CircularBuffer::CircularBuffer(){
-//CircularBuffer::CircularBuffer(){
+CircularBuffer::CircularBuffer(float * buf, int N){
+  _buf = buf;
+  this->N = N;
+  reset();
+}
+
+void CircularBuffer::reset(){
+  _sum = 0;
   _count = 0;
 }
 
-//template<typename T>
-void CircularBuffer::push(T val){
+void CircularBuffer::push(float val){
   if(_count < N){
     _sum += val;
     _buf[_count] = val;
@@ -17,17 +20,18 @@ void CircularBuffer::push(T val){
     return;
   }
 
+  if(_index == N){
+    _index = 0;
+  }
   _sum += val - _buf[_index];
   _buf[_index] = val;
   _index++;
 }
 
-//template<typename T>
-T CircularBuffer::sum(){
+float CircularBuffer::sum(){
   return _sum;
 }
 
-//template<typename T>
-T CircularBuffer::mean(){
+float CircularBuffer::mean(){
   return _sum / _count;
 }

@@ -1,17 +1,21 @@
 #include<maf.h>
 
-#define currentPin A0
-#define bufferLength 50
-
-//CircularBuffer<int,bufferLength> cb();
 CircularBuffer cb;
 
-void setup(){
+int k = 0;
+float pi_8 = 0.39269908169;
+
+void setup() {
   Serial.begin(9600);
 }
 
-void loop(){
-  int current = analogRead(currentPin);
-  cb.push(current);
-  Serial.println(cb.mean());
+void loop() {
+  float x = 20 + 10 * sin(k*pi_8);
+  cb.push(x);
+  float y = cb.mean();
+  Serial.print(x);
+  Serial.print(" ");
+  Serial.println(y);
+  k++;
+  delay(300);
 }
