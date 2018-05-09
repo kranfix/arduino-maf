@@ -2,7 +2,9 @@
  * Created by Kranfix on 08/05/2018
  */
 
-template<class T,int N>
+//#define T int
+#define N 50
+template<typename T>
 class CircularBuffer {
   T _buf[N];
   
@@ -20,4 +22,4 @@ public:
   T getMax();
   T sum();
   T mean();
-}
+};
