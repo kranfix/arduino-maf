@@ -1,6 +1,8 @@
 #include<maf.h>
 
-CircularBuffer cb;
+#define N 48
+float buf[N];
+CircularBuffer cb(buf,N);
 
 int k = 0;
 float pi_8 = 0.39269908169;
